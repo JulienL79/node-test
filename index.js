@@ -1,6 +1,6 @@
 import express from 'express';
 import 'dotenv/config'
-import { moviesData } from './data/moviesData';
+import { moviesData } from './data/moviesData.js';
 
 const app = express();
 const PORT = process.env.PORT;
