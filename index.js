@@ -21,8 +21,7 @@ app.get('/movies', (request, response) => {
 app.get('/movie/:id', (req, res) => {
     let {id} = req.params
     try {
-        const movieByID = movies.find((movie) => { movie.id === parseInt(id)})
-        console.log(movieByID)
+        const movieByID = movies.find((movie) => movie.id === parseInt(id))
         if(!movieByID) {
             return res.status(400).json({message: 'Movie not found'})
         }
@@ -34,12 +33,13 @@ app.get('/movie/:id', (req, res) => {
 })
 
 app.post('/movies', (req, res) => {
-    let {title, genre} = req.body
+    let {title} = req.body
     const newMovie = {
         id: movies.length + 1,
         name: title
     }
     moviesData.push(newMovie)
+    console.log(moviesData)
 })
 
 app.listen(PORT, () => console.log(`Server is running on PORT ${PORT}`))
