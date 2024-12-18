@@ -1,10 +1,10 @@
 export const moviesData = [
     {
         id: 1,
-        name: 'aaa'
+        title: 'aaa'
     },
     {
         id: 2,
-        name: 'bbb'
+        title: 'bbb'
     }
 ]
