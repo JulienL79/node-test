@@ -17,11 +17,11 @@ export const getAllUsers = async (req, res) => {
 export const getUserById = async (req, res) => {
     const {id} = req.params
     try {
-        const userById = await User.findById(id) //le {new : true} permet de renvoyer la valeur après modif
+        const userById = await User.findById(id).select('email firstname lastname'); //le {new : true} permet de renvoyer la valeur après modif
         if (!userById) {
             return res.status(400).json({message: 'User not found'})
         }
-        return res.status(200).json({message: 'User has been updated'})
+        return res.json(userById)
     }
     catch (err){
         return res.status(500).json({message: 'Internal server error'})

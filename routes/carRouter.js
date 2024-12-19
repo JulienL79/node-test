@@ -1,10 +1,11 @@
 import { Router } from "express";
 import Car from "../models/Car.js";
 import { createCar, deleteCarById, getAllCars, getCarById, updateCarById } from "../controllers/carController.js";
+import { verifyToken } from "../middlewares/userValidation.js";
 
 const carRouter = Router()
 
-carRouter.get('/cars', getAllCars)
+carRouter.get('/cars', verifyToken, getAllCars)
 
 carRouter.post('/car', createCar)
 

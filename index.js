@@ -5,6 +5,7 @@ import userRouter from './routes/userRouter.js';
 import mongoose from 'mongoose';
 import carRouter from './routes/carRouter.js';
 import cors from 'cors'
+import authRouter from './routes/authRouter.js';
 
 const app = express();
 const PORT = process.env.PORT || 3002
@@ -13,7 +14,7 @@ const MONGO_URI = process.env.MONGO_URI
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
-app.use(movieRouter, userRouter, carRouter)
+app.use(movieRouter, userRouter, carRouter, authRouter)
 
 app.get('/', (req, res) => {
     res.send("Welcome to my API")
